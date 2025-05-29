@@ -1,0 +1,70 @@
+{
+    "sensors": {
+        "imu": {
+            "enabled": true,
+            "components": {
+                "accelerometer": true,
+                "gyroscope": true,
+                "magnetometer": true
+            }
+        },
+        "orientation": {
+            "enabled": true,
+            "components": {
+                "attitude": true,
+                "quaternion": true,
+                "rotationalMatrix": true
+            }
+        },
+        "environment": {
+            "enabled": true,
+            "components": {
+                "pressure": true,
+                "altitude": true
+            }
+        },
+        "audio": {
+            "enabled": true,
+            "samplingRate": 44100,
+            "bitDepth": 16,
+            "channels": 1
+        },
+        "healthKit": {
+            "enabled": true,
+            "components": {
+                "stepCount": true,
+                "activeEnergyBurned": true,
+                "heartRate": true
+            },
+            "typesToRead": [
+                "HKQuantityTypeIdentifierHeartRate",
+                "HKQuantityTypeIdentifierStepCount",
+                "HKQuantityTypeIdentifierActiveEnergyBurned"
+            ]
+        }
+    },
+    "samplingRates": {
+        "motion_environmental": 50.0,
+        "healthKit": {
+            "heartRate": 1.0,
+            "stepCount": 0.2,
+            "activeEnergyBurned": 0.1
+        }
+    },
+    "models": {
+        "enabled": true,
+        "activeModel": {
+            "id": "activity_classifier_v2",
+            "name": "Activity Classifier",
+            "version": "2.1.0",
+            "firebasePath": "models/motion/activity_classifier_v2",
+            "inputType": "imu",
+            "runOnDevice": true
+        }
+    },
+    "activities": [
+        "In-shower",
+        "Out-shower",
+        "Diary"
+    ]
+}
